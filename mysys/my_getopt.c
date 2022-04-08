@@ -23,6 +23,7 @@
 #include <mysys_err.h>
 #include <my_getopt.h>
 #include <errno.h>
+#include <ctype.h>
 
 typedef void (*init_func_p)(const struct my_option *option, void *variable,
                             longlong value);
@@ -41,7 +42,6 @@ static void fini_one_value(const struct my_option *, void *, longlong);
 static int setval(const struct my_option *, void *, char *, my_bool);
 static char *check_struct_option(char *cur_arg, char *key_name);
 
-int tolower (int c){ return (c >= 'A' && c <= 'Z')?(c - 'A' + 'a'):c; }
 /*
   The following three variables belong to same group and the number and
   order of their arguments must correspond to each other.
